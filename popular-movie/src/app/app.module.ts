@@ -8,6 +8,13 @@ import { SidebarComponent } from './_layout/sidebar/sidebar.component';
 import { MainSecrionComponent } from './_layout/main-secrion/main-secrion.component';
 import { MovieCardComponent } from './_shared/_components/movie-card/movie-card.component';
 import { MoviesListComponent } from './_shared/_components/movies-list/movies-list.component';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+
+import {MyInterceptorService} from './_services/interceptor.interceptor';
+import { DateForamtPipe } from './_shared/pipes/date-foramt.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import {NgbRatingModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,13 +23,19 @@ import { MoviesListComponent } from './_shared/_components/movies-list/movies-li
     SidebarComponent,
     MainSecrionComponent,
     MovieCardComponent,
-    MoviesListComponent
+    MoviesListComponent,
+    DateForamtPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    NgbRatingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true },
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

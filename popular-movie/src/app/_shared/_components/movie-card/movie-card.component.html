@@ -1,1 +1,53 @@
-<p>movie-card works!</p>
+<ng-container *ngIf="movie; else elseTemplate">
+    <div class="card-container">
+        <div class="flex-between">
+            <h3>
+                {{movie.title}}
+            </h3>
+            <h6>
+                {{movie.release_date | dateForamt}}
+            </h6>
+        </div>
+        <div class="row mt-40px">
+            <div class="col-5">
+                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class=" movie-image" alt="{{movie.title}}" />
+            </div>
+            <div class="col-7 mt-40px">
+                <h4>
+                    Overview
+                </h4>
+                <p>
+                    {{movie.overview}}
+                </p>
+                <h4 class="mt-40px">
+                    Genres
+                </h4>
+                <div class="genre-chips">
+                    <div class="genre" *ngFor="let genre of movie.genres">
+                        {{genre.name}}
+                    </div>
+                </div>
+                <div class="mt-40px">
+                    <button class="play-button">
+                        <i class="fa fa-play"></i> Play Trailer</button>
+                </div>
+                <div class="stars mt-40px">
+                    <ngb-rating [max]="5" [starTemplate]="t" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <ng-template #t let-fill="fill">
+        <span class="star" [class.full]="fill === 100">
+          <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+        </span>
+    </ng-template>
+</ng-container>
+
+<ng-template #elseTemplate>
+    <div class="select-a-movie">
+        Select a movie
+    </div>
+</ng-template>

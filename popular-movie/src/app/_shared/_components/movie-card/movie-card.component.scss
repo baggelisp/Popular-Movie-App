@@ -1,0 +1,43 @@
+.card-container {
+    padding: 40px;
+}
+
+.genre {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 0 5px;
+}
+
+.genre-chips {
+    display: flex;
+    justify-content: start;
+}
+
+.movie-image {
+    max-width: 100%!important;
+    max-height: 80%;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+}
+
+.full {
+    color: black;
+}
+
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: black;
+}
+
+.play-button {
+    padding: 10px 30px;
+    border-radius: 20px;
+}

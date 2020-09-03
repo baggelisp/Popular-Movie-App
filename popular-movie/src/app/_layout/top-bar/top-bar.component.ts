@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentsCommunicationService} from '../../_services/components-communication.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private componentsCommunication: ComponentsCommunicationService) { }
 
   ngOnInit(): void {
   }
 
-  changeInput(event){
-    console.log(event)
+  changeInput(text){
+    this.componentsCommunication.changeSearchBox(text);
   }
 }
