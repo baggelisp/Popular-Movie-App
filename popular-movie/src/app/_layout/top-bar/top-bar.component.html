@@ -1,1 +1,11 @@
-<p>top-bar works!</p>
+<div class="header">
+    <h3>
+        Movie Viewer
+    </h3>
+
+    <div class="search-container">
+        <input (input)="changeInput($event.target.value)" type="text" placeholder="Search.." name="search">
+        <i class="fa fa-search fa-5x"></i>
+    </div>
+
+</div>
