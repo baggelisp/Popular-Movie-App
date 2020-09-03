@@ -7,6 +7,7 @@ import { TopBarComponent } from './_layout/top-bar/top-bar.component';
 import { SidebarComponent } from './_layout/sidebar/sidebar.component';
 import { MainSecrionComponent } from './_layout/main-secrion/main-secrion.component';
 import { MovieCardComponent } from './_shared/_components/movie-card/movie-card.component';
+import { MoviesListComponent } from './_shared/_components/movies-list/movies-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MovieCardComponent } from './_shared/_components/movie-card/movie-card.
     TopBarComponent,
     SidebarComponent,
     MainSecrionComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MoviesListComponent
   ],
   imports: [
     BrowserModule,
