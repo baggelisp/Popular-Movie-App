@@ -17,14 +17,18 @@ export class RequestsService {
     return this.http.get<MoviesResponse>(`${apiUrl}popular?api_key=${apiKey}`);
   }
 
-    // Movie details
-    getMovieDetails(id: number): Observable<any> {
-      return this.http.get<any>(`${apiUrl}${id}?api_key=${apiKey}`)
-    }
-  
-    // Movie search
-    searchMovie(query: string): Observable<any> {
-      return this.http.get<any>(search + query)
-    }
+  // Movie details
+  getMovieDetails(id: number): Observable<any> {
+    return this.http.get<any>(`${apiUrl}${id}?api_key=${apiKey}`)
+  }
+
+  // Movie search
+  searchMovie(query: string): Observable<any> {
+    return this.http.get<any>(search + query)
+  }
+
+  latestMovie(){
+    return this.http.get<any>(`${apiUrl}latest?api_key=${apiKey}`);
+  }
   
 }

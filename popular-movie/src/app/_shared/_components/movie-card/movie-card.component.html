@@ -8,6 +8,7 @@
                 {{movie.release_date | dateForamt}}
             </h6>
         </div>
+        <p> {{movie.tagline}}</p>
         <div class="row mt-40px">
             <div class="col-5">
                 <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class=" movie-image" alt="{{movie.title}}" />
@@ -28,11 +29,16 @@
                     </div>
                 </div>
                 <div class="mt-40px">
-                    <button class="play-button">
-                        <i class="fa fa-play"></i> Play Trailer</button>
+                    <button class="trailer-button btn btn-success">
+                        <i class="fa fa-play mr-10px"></i>Trailer</button>
+                    <button *ngIf="movie.homepage" (click)="goToLink(movie.homepage)" class="play-button ml-10px btn btn-danger">
+                            <i class="fa fa-play mr-10px"></i>Play</button>
                 </div>
                 <div class="stars mt-40px">
                     <ngb-rating [max]="5" [starTemplate]="t" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+                </div>
+                <div class="votes">
+                    <p>Total votes: {{movie.vote_count}}</p>
                 </div>
 
             </div>

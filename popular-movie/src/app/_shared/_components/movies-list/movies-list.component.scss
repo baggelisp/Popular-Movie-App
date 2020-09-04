@@ -21,3 +21,18 @@
 .selected {
     background-color: whitesmoke;
 }
+
+.movie-image {
+    width: 50px;
+}
+
+.stars-fonts {
+    display: flex;
+    justify-content: start;
+    width: 90px;
+    font-size: 16px;
+    .fa {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+}

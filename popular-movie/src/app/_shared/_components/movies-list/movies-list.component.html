@@ -1,8 +1,24 @@
-<div>
-    <div class="movie-row" *ngFor="let item of movies" (click)="clickMovie(item)" [ngClass]="{'selected': item.id === selectedMovieId}">
-        <h4>
-            {{item.title}}
-        </h4>
-        <i class="fa fa-angle-right fa-5x"></i>
+<ng-container *ngIf="movies.length; else elseTemplate">
+    <div>
+        <div class="movie-row" *ngFor="let movie of movies" (click)="clickMovie(movie)" [ngClass]="{'selected': movie.id === selectedMovieId}">
+            <div class="flex-between align-center">
+                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class=" movie-image" alt="{{movie.title}}" />
+                <h4 class="pl-40px">
+                    {{movie.title}}
+                </h4>
+            </div>
+            <div class="flex-between align-center">
+                <h4 class="stars-fonts">
+                    {{movie.vote_average / 2}} / 5
+                    <i class="fa fa-star "></i>
+                </h4>
+                <i class="pl-40px fa fa-angle-right fa-5x"></i>
+            </div>
+        </div>
     </div>
-</div>
+</ng-container>
+<ng-template #elseTemplate>
+    <div style="padding:20px">
+        No movie matching.
+    </div>
+</ng-template>

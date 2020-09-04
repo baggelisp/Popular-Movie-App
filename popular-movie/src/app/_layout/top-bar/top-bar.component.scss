@@ -21,9 +21,13 @@
         border: 0;
         padding: 10px 20px;
         background-color: #e2e2e2d4;
+        border: 2px solid #e2e2e2d4;
+        transition: all 0.5s;
     }
     input:focus {
         outline: none;
+        background-color: white;
+        border: 2px solid #e2e2e2d4;
     }
     .fa {
         font-size: 25px;
@@ -32,4 +36,8 @@
         right: 10px;
         top: 7px;
     }
+}
+
+.title {
+    font-weight: 900!important;
 }

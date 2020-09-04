@@ -2,3 +2,22 @@
     margin: 0;
     padding: 0;
 }
+
+.anim1s {
+    transition: all 1s;
+}
+
+.animwidth {
+    transition: max-width 1s;
+}
+
+.main-section {
+    max-height: calc(100vh - 80px);
+    position: sticky;
+    top: 80px;
+}
+
+.rom {
+    max-height: 100vh;
+    overflow: scroll;
+}

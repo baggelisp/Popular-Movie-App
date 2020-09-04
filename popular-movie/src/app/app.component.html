@@ -1,16 +1,10 @@
 <app-top-bar></app-top-bar>
-
-
-
 <div class="container-fluid">
     <div class="row">
-
-        <div class="col-4">
+        <div class="anim1s col-4" [ngClass]="{'col-4': movieIsSelected, 'col-12': !movieIsSelected }">
             <app-sidebar></app-sidebar>
-
         </div>
-
-        <div class="col-8">
+        <div class="animwidth col-8 main-section" [ngClass]="{'col-8': movieIsSelected, 'col-0': !movieIsSelected }">
             <app-main-secrion></app-main-secrion>
         </div>
     </div>

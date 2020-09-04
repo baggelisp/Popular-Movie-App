@@ -14,7 +14,7 @@ import {MyInterceptorService} from './_services/interceptor.interceptor';
 import { DateForamtPipe } from './_shared/pipes/date-foramt.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import {NgbRatingModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
