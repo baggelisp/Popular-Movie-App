@@ -3,24 +3,24 @@ import { ComponentsCommunicationService} from '../../_services/components-commun
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-top-bar',
-  templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.scss']
+	selector: 'app-top-bar',
+	templateUrl: './top-bar.component.html',
+	styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
 
-  destroy: Subject<boolean> = new Subject<boolean>();
-  
-  constructor(private componentsCommunication: ComponentsCommunicationService) { }
+	destroy: Subject<boolean> = new Subject<boolean>();
+	
+	constructor(private componentsCommunication: ComponentsCommunicationService) { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
-  changeInput(text){
-    this.componentsCommunication.changeSearchBox(text);
-  }
+	changeInput(text: string){
+		this.componentsCommunication.changeSearchBox(text);
+	}
 
-  ngOnDestroy() {
+	ngOnDestroy() {
 		this.destroy.next(true);
 		this.destroy.unsubscribe();
 	}
