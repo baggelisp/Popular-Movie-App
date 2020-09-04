@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1200px) {
+    .row {
+        flex-wrap: wrap!important;
+    }
+    .d-m-block {
+        display: block!important;
+    }
+    .d-m-none {
+        display: none!important;
+    }
+    .w-m-100 {
+        width: 100%!important;
+    }
+    .m-m-0 {
+        margin: 0!important;
+    }
+    .p-m-0 {
+        padding: 0!important;
+    }
+    .m-top-10px {
+        margin-top: 10px!important;
+    }
+    .m-top-40px {
+        margin-top: 40px!important;
+    }
+    .m-text-center {
+        text-align: center;
+    }
+}

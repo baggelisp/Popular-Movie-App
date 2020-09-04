@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { RequestsService } from '../../../_services/requests.service';
 import { takeUntil } from 'rxjs/operators';
+import { TrailerRes } from 'src/app/_models/interfaces';
 
 @Component({
 	selector: 'app-video-modal',
@@ -19,8 +20,7 @@ export class VideoModalComponent implements OnInit,OnDestroy {
 	constructor(private requestsService: RequestsService, public activeModal: NgbActiveModal , private router: Router) {}
 
 	ngOnInit() {
-		console.log(this.movieId)
-		this.requestsService.getMovieTrailer(this.movieId).pipe(takeUntil(this.destroy)).subscribe( (res: any) => {
+		this.requestsService.getMovieTrailer(this.movieId).pipe(takeUntil(this.destroy)).subscribe( (res: TrailerRes) => {
 			this.dataReady = true;
 			if (res.results.length === 0){
 				return

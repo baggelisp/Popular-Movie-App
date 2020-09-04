@@ -9,7 +9,7 @@
     .fa {
         font-size: 25px;
     }
-    h4 {
+    h5 {
         margin: 0;
     }
 }
@@ -35,4 +35,12 @@
         margin-left: 10px;
         font-size: 16px;
     }
+}
+
+.back-button {
+    background: brown;
+    color: white;
+    text-align: center;
+    margin: 10px 30px;
+    border-radius: 10px;
 }

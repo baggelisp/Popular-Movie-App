@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
 import { RequestsService } from '../../../_services/requests.service';
 import { MoviesResponse, Movie } from '../../../_models/interfaces';
 import { ComponentsCommunicationService} from '../../../_services/components-communication.service';
@@ -14,8 +14,24 @@ export class MoviesListComponent implements OnInit {
 	destroy: Subject<boolean> = new Subject<boolean>();
 	movies = [];
 	selectedMovieId;
+	mobileView: boolean;
 
-	constructor( private comp_comm: ComponentsCommunicationService,  private requestsService: RequestsService) { }
+	@HostListener('window:resize', ['$event'])
+	resize(event) {
+		if (window.innerWidth > 576) {
+			this.mobileView = false;
+		} else {
+			this.mobileView = true;
+		}
+	}
+
+	constructor( private comp_comm: ComponentsCommunicationService,  private requestsService: RequestsService) { 
+		if (window.innerWidth > 576) {
+			this.mobileView =  false;
+		} else {
+			this.mobileView =  true;
+		}
+	}
 
 	ngOnInit(): void {
 		this.onSearchBoxChanges();
@@ -43,6 +59,10 @@ export class MoviesListComponent implements OnInit {
 			this.movies = [...res.results];
 			});
 		});
+	}
+
+	backButton(){
+		this.selectedMovieId = null;
 	}
 
 	ngOnDestroy() {
