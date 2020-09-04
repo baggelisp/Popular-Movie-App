@@ -17,7 +17,8 @@
     top: 80px;
 }
 
-.rom {
-    max-height: 100vh;
-    overflow: scroll;
+.row {
+    // max-height: 100vh;
+    // overflow: scroll;
+    flex-wrap: nowrap!important;
 }
