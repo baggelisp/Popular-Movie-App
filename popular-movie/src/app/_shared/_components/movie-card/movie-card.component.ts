@@ -15,10 +15,9 @@ import { takeUntil } from 'rxjs/operators';
 export class MovieCardComponent implements OnInit {
 
 	movie: MovieDetails;
-	currentRate;
+	currentRate: number;
 	randomMovie = true;
 
-  
 	constructor(private modalService: NgbModal,  private comp_comm: ComponentsCommunicationService, private requestsService: RequestsService) { }
 	destroy: Subject<boolean> = new Subject<boolean>();
 
@@ -33,7 +32,7 @@ export class MovieCardComponent implements OnInit {
 		window.open(url, '_blank');
 	}
 
-	getMovie(id){
+	getMovie(id: number){
 		this.requestsService.getMovieDetails(id).pipe(takeUntil(this.destroy)).subscribe( (res: MovieDetails) => {
 			this.movie = res;
 			this.currentRate = res.vote_average / 2;

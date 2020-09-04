@@ -13,11 +13,11 @@ import { TrailerRes } from 'src/app/_models/interfaces';
 })
 export class VideoModalComponent implements OnInit,OnDestroy {
 	destroy: Subject<boolean> = new Subject<boolean>();
-	@Input() movieId;
+	@Input() movieId: number;
 	url: string;
 	dataReady = false;
 
-	constructor(private requestsService: RequestsService, public activeModal: NgbActiveModal , private router: Router) {}
+	constructor(private requestsService: RequestsService, public activeModal: NgbActiveModal) {}
 
 	ngOnInit() {
 		this.requestsService.getMovieTrailer(this.movieId).pipe(takeUntil(this.destroy)).subscribe( (res: TrailerRes) => {

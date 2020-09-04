@@ -41,3 +41,10 @@
 .title {
     font-weight: 900!important;
 }
+
+@media only screen and (max-width: 576px) {
+    .header {
+        height: 120px;
+        padding-top: 20px;
+    }
+}
