@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { apiUrl , apiKey, searchUrl, discoverUrl} from '../../config/constants';
+import { apiUrl , apiKey, searchUrl} from '../../config/constants';
 import { MoviesResponse, TrailerRes, MovieDetails } from '../_models/interfaces';
 
 @Injectable({
@@ -12,8 +12,8 @@ export class RequestsService {
 	constructor(private http: HttpClient) {
 	}
 
-	getPopularMovies(): Observable<MoviesResponse> {
-		return this.http.get<MoviesResponse>(`${discoverUrl}?api_key=${apiKey}&sort_by=popularity.desc`);
+	getAllMovies(): Observable<MoviesResponse> {
+		return this.http.get<MoviesResponse>(`${apiUrl}popular?api_key=${apiKey}`);
 	}
 
 	getMovieDetails(id: number): Observable<MovieDetails> {
