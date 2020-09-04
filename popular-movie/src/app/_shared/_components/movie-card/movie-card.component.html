@@ -9,27 +9,27 @@
             </h6>
         </div>
         <p> {{movie.tagline}}</p>
-        <div class="row mt-40px">
+        <div class="row mt-40px d-m-block">
             <div class="col-5">
                 <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class=" movie-image" alt="{{movie.title}}" />
             </div>
-            <div class="col-7 mt-40px">
-                <h4>
+            <div class="col-12 col-xl-7 mt-40px w-m-100 m-m-0 p-m-0 m-top-40px">
+                <h5>
                     Overview
-                </h4>
+                </h5>
                 <p>
                     {{movie.overview}}
                 </p>
-                <h4 class="mt-40px">
+                <h5 class="mt-40px">
                     Genres
-                </h4>
-                <div class="genre-chips">
-                    <div class="genre" *ngFor="let genre of movie.genres">
+                </h5>
+                <div class="genre-chips d-m-block">
+                    <div class="genre m-top-10px m-text-center " *ngFor="let genre of movie.genres">
                         {{genre.name}}
                     </div>
                 </div>
-                <div class="mt-40px">
-                    <button class="trailer-button btn btn-success">
+                <div class="mt-40px d-m-block">
+                    <button (click)="openTrailer(movie)" class="trailer-button btn btn-success">
                         <i class="fa fa-play mr-10px"></i>Trailer</button>
                     <button *ngIf="movie.homepage" (click)="goToLink(movie.homepage)" class="play-button ml-10px btn btn-danger">
                             <i class="fa fa-play mr-10px"></i>Play</button>

@@ -15,27 +15,32 @@ import { DateForamtPipe } from './_shared/pipes/date-foramt.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
+import { VideoModalComponent } from './_shared/_components/video-modal/video-modal.component';
+import { SanitizeHtmlPipePipe } from './_shared/pipes/sanitize-html-pipe.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopBarComponent,
-    SidebarComponent,
-    MainSecrionComponent,
-    MovieCardComponent,
-    MoviesListComponent,
-    DateForamtPipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgbModule,
-    NgbRatingModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true },
-    ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		TopBarComponent,
+		SidebarComponent,
+		MainSecrionComponent,
+		MovieCardComponent,
+		MoviesListComponent,
+		DateForamtPipe,
+		VideoModalComponent,
+		SanitizeHtmlPipePipe
+	],
+	entryComponents: [VideoModalComponent],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		NgbModule,
+		NgbRatingModule
+	],
+	providers: [
+		{ provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true },
+		],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

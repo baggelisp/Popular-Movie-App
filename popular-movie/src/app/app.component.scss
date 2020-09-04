@@ -15,12 +15,11 @@
     max-height: calc(100vh - 80px);
     position: sticky;
     top: 80px;
+    overflow-y: scroll;
 }
 
 .row {
-    // max-height: 100vh;
-    // overflow: scroll;
     width: 100%;
-    flex-wrap: nowrap!important;
+    flex-wrap: nowrap;
     margin: 0;
 }
