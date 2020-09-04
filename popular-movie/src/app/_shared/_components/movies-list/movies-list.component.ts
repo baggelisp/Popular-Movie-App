@@ -2,45 +2,51 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RequestsService } from '../../../_services/requests.service';
 import { MoviesResponse, Movie } from '../../../_models/interfaces';
 import { ComponentsCommunicationService} from '../../../_services/components-communication.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-movies-list',
-  templateUrl: './movies-list.component.html',
-  styleUrls: ['./movies-list.component.scss']
+	selector: 'app-movies-list',
+	templateUrl: './movies-list.component.html',
+	styleUrls: ['./movies-list.component.scss']
 })
 export class MoviesListComponent implements OnInit {
+	destroy: Subject<boolean> = new Subject<boolean>();
+	movies = [];
+	selectedMovieId;
 
-  movies = [];
-  selectedMovieId;
+	constructor( private comp_comm: ComponentsCommunicationService,  private requestsService: RequestsService) { }
 
-  constructor( private comp_comm: ComponentsCommunicationService,  private requestsService: RequestsService) { }
+	ngOnInit(): void {
+		this.onSearchBoxChanges();
+		this.getPopularMovies();
+	}
 
-  ngOnInit(): void {
+	getPopularMovies(){
+		this.requestsService.getAllMovies().pipe(takeUntil(this.destroy)).subscribe( (res: MoviesResponse) => {
+			this.movies = [...res.results];
+		});
+	}
 
-    this.onSearchBoxChanges();
-    this.getPopularMovies();
-  }
+	clickMovie(movie: Movie) {
+		this.comp_comm.changeOpenMovie(movie);
+		this.selectedMovieId = movie.id;
+	}
 
-  getPopularMovies(){
-    this.requestsService.getAllMovies().subscribe( (res: MoviesResponse) => {
-      this.movies = [...res.results];
-    });
-  }
+	onSearchBoxChanges(){
+		this.comp_comm.searchBoxObj.pipe(takeUntil(this.destroy)).subscribe((data: string) => {
+			if (data === ''){
+			this.getPopularMovies();
+			return;
+			}
+			this.requestsService.searchMovie(data).pipe(takeUntil(this.destroy)).subscribe((res: MoviesResponse) => {
+			this.movies = [...res.results];
+			});
+		});
+	}
 
-  clickMovie(movie: Movie) {
-    this.comp_comm.changeOpenMovie(movie);
-    this.selectedMovieId = movie.id;
-  }
-
-  onSearchBoxChanges(){
-    this.comp_comm.searchBoxObj.subscribe((data: string) => {
-      if (data === ''){
-        this.getPopularMovies();
-        return;
-      }
-      this.requestsService.searchMovie(data).subscribe((res: MoviesResponse) => {
-        this.movies = [...res.results];
-      });
-    });
-  }
+	ngOnDestroy() {
+		this.destroy.next(true);
+		this.destroy.unsubscribe();
+	}
 }

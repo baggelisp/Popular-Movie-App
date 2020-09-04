@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ComponentsCommunicationService} from '../../_services/components-communication.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,6 +9,8 @@ import { ComponentsCommunicationService} from '../../_services/components-commun
 })
 export class TopBarComponent implements OnInit {
 
+  destroy: Subject<boolean> = new Subject<boolean>();
+  
   constructor(private componentsCommunication: ComponentsCommunicationService) { }
 
   ngOnInit(): void {
@@ -16,4 +19,9 @@ export class TopBarComponent implements OnInit {
   changeInput(text){
     this.componentsCommunication.changeSearchBox(text);
   }
+
+  ngOnDestroy() {
+		this.destroy.next(true);
+		this.destroy.unsubscribe();
+	}
 }

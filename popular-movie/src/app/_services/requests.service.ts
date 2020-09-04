@@ -6,29 +6,31 @@ import { apiUrl , apiKey, search} from '../../config/constants';
 import { MoviesResponse } from '../_models/interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  	providedIn: 'root'
 })
 export class RequestsService {
 
-  constructor(private http: HttpClient) {
-  }
+	constructor(private http: HttpClient) {
+	}
 
-  getAllMovies(): Observable<MoviesResponse> {
-    return this.http.get<MoviesResponse>(`${apiUrl}popular?api_key=${apiKey}`);
-  }
+	getAllMovies(): Observable<MoviesResponse> {
+		return this.http.get<MoviesResponse>(`${apiUrl}popular?api_key=${apiKey}`);
+	}
 
-  // Movie details
-  getMovieDetails(id: number): Observable<any> {
-    return this.http.get<any>(`${apiUrl}${id}?api_key=${apiKey}`)
-  }
+	getMovieDetails(id: number): Observable<any> {
+		return this.http.get<any>(`${apiUrl}${id}?api_key=${apiKey}`)
+	}
 
-  // Movie search
-  searchMovie(query: string): Observable<any> {
-    return this.http.get<any>(search + query)
-  }
+	searchMovie(query: string): Observable<any> {
+		return this.http.get<any>(search + query)
+	}
 
-  latestMovie(){
-    return this.http.get<any>(`${apiUrl}latest?api_key=${apiKey}`);
-  }
-  
+	latestMovie(){
+		return this.http.get<any>(`${apiUrl}latest?api_key=${apiKey}`);
+	}
+
+	getMovieTrailer(id: string){
+	return this.http.get<any>(`${apiUrl}${id}/videos?api_key=${apiKey}`)
+	}
+
 }
