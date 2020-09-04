@@ -17,24 +17,30 @@ export class MoviesListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.onSearchBoxChanges()
+    this.onSearchBoxChanges();
+    this.getPopularMovies();
+  }
 
-
+  getPopularMovies(){
     this.requestsService.getAllMovies().subscribe( (res: MoviesResponse) => {
       this.movies = [...res.results];
     });
   }
 
-  clickMovie(movie: Movie){
+  clickMovie(movie: Movie) {
     this.comp_comm.changeOpenMovie(movie);
     this.selectedMovieId = movie.id;
   }
 
   onSearchBoxChanges(){
     this.comp_comm.searchBoxObj.subscribe((data: string) => {
+      if (data === ''){
+        this.getPopularMovies();
+        return;
+      }
       this.requestsService.searchMovie(data).subscribe((res: MoviesResponse) => {
         this.movies = [...res.results];
-      })
+      });
     });
   }
 }

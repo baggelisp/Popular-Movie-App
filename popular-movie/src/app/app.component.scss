@@ -20,5 +20,7 @@
 .row {
     // max-height: 100vh;
     // overflow: scroll;
+    width: 100%;
     flex-wrap: nowrap!important;
+    margin: 0;
 }
