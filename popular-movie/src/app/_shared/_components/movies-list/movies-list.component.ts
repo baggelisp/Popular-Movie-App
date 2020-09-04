@@ -39,7 +39,7 @@ export class MoviesListComponent implements OnInit {
 	}
 
 	getPopularMovies(){
-		this.requestsService.getPopularMovies().pipe(takeUntil(this.destroy)).subscribe( (res: MoviesResponse) => {
+		this.requestsService.getAllMovies().pipe(takeUntil(this.destroy)).subscribe( (res: MoviesResponse) => {
 			this.movies = [...res.results];
 		});
 	}
