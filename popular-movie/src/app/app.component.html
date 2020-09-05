@@ -1,11 +1,2 @@
 <app-top-bar></app-top-bar>
-<div class="container-fluid">
-    <div class="row">
-        <div class="anim1s col-12" [ngClass]="{'col-xl-4': movieIsSelected, 'col-xl-12': !movieIsSelected }">
-            <app-sidebar></app-sidebar>
-        </div>
-        <div class="animwidth main-section col-12" [ngClass]="{'col-xl-8': movieIsSelected, 'd-none': !movieIsSelected }">
-            <app-main-secrion></app-main-secrion>
-        </div>
-    </div>
-</div>
+<router-outlet></router-outlet>

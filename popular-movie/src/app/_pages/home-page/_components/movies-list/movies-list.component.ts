@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { RequestsService } from '../../../_services/requests.service';
-import { MoviesResponse, Movie } from '../../../_models/interfaces';
-import { ComponentsCommunicationService} from '../../../_services/components-communication.service';
+import { RequestsService } from '../../../../_services/requests.service';
+import { MoviesResponse, Movie } from '../../../../_models/interfaces';
+import { ComponentsCommunicationService} from '../../../../_services/components-communication.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
