@@ -4,7 +4,6 @@ export interface MoviesResponse {
 	total_pages: number;
 	results: Movie[];
 }
-  
 
 export interface Movie {
 	adult: boolean;
@@ -22,7 +21,7 @@ export interface Movie {
 	vote_average: number;
 	vote_count: number;
 }
-interface gernesInt {
+interface GernesInt {
 	id: number;
 	name: string;
 }
@@ -32,7 +31,7 @@ export interface MovieDetails {
 	backdrop_path: string;
 	belongs_to_collection: any;
 	budget: number;
-	genres: gernesInt[];
+	genres: GernesInt[];
 	homepage: string;
 	id: number;
 	imdb_id: string;

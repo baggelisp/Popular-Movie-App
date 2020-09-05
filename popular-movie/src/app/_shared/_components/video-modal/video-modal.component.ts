@@ -1,7 +1,6 @@
 import { Component, Input ,Output ,OnDestroy , EventEmitter, OnInit} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
-import { Router } from '@angular/router';
 import { RequestsService } from '../../../_services/requests.service';
 import { takeUntil } from 'rxjs/operators';
 import { TrailerRes } from 'src/app/_models/interfaces';

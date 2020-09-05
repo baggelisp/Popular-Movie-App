@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentsCommunicationService} from '../../../_services/components-communication.service';
-import { RequestsService } from 'src/app/_services/requests.service';
-import { Movie, MovieDetails } from '../../../_models/interfaces';
-import { VideoModalComponent } from '../video-modal/video-modal.component';
+import { ComponentsCommunicationService} from '../../../../_services/components-communication.service';
+import { RequestsService } from '../../../../_services/requests.service';
+import { Movie, MovieDetails } from '../../../../_models/interfaces';
+import { VideoModalComponent } from '../../../../_shared/_components/video-modal/video-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
