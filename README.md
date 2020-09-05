@@ -31,3 +31,12 @@ The build artifacts will be stored in the `dist/` directory. Use the `--prod` fl
 You can serve the web app by running a Lightweight development node server.<br />
 Run inside `dist/popular-movie/` directory: `npx light-server -s . --historyindex '/index.html' -o`  <br />
 Navigate to `http://localhost:4000/`. 
+
+## Examples
+
+1.
+![Example 1](images/1.png)
+2.
+![Example 2](images/2.png)
+3.
+![Example 3](images/3.png)
