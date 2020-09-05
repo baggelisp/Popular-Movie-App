@@ -21,7 +21,7 @@ COPY . .
 
 RUN ng build --prod
 
-RUN cp -rf ./dist/* /usr/share/nginx/html/
+RUN cp -rf ./dist/popular-movie/* /usr/share/nginx/html/
 
 # FROM nginx:alpine
 # COPY --from=build /usr/src/app/dist /usr/share/nginx/html
